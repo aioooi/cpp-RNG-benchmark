@@ -1,4 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
 project(code_cpp_RNG_benchmark)
-add_executable(${PROJECT_NAME} "src/main.cpp")
+
+set(CMAKE_CXX_STANDARD 17)
+
+set(SOURCE_FILES
+        src/benchmark.h
+        src/main.cpp
+    )
+
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
