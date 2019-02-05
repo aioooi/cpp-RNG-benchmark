@@ -15,15 +15,15 @@ public:
         auto start = std::chrono::system_clock::now();
         benchmark();
         auto end = std::chrono::system_clock::now();
-        duration = end - start();
+        duration = end - start;
         post_benchmark();
     }
 
-private:
+protected:
     virtual void benchmark() = 0;
     virtual void post_benchmark() = 0;
 
-    const std::chrono::duration<double> duration;
+    std::chrono::duration<double> duration;
     std::string name;
 };
 
