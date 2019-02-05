@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCE_FILES
         src/benchmark.h
+        src/rngbenchmark.h
         src/main.cpp
     )
 
