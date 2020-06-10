@@ -27,7 +27,7 @@ protected:
 
     void post_benchmark() {
         std::cout << "Benchmark " << name << ":" << std::endl
-                  << trials << " in " << duration.count() << " seconds, i.e., "
+                  << trials << " samples in " << duration.count() << " seconds, i.e., "
                   << trials / duration.count() << " samples per second"
                   << std::endl;
     }
