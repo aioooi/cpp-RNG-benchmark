@@ -1,3 +1,4 @@
+#include <chrono>
 #include <random>
 
 #include <boost/random/mersenne_twister.hpp>
@@ -95,7 +96,23 @@ int main()
 
     for (const auto &bm : benchmarks) {
         bm->run();
+        std::cout << std::endl;
     }
 
+    // example to (crudely) verify (low) benchmark class overhead:
+    boost::random::taus88 rng(SEED);
+    boost::random::normal_distribution<double> dist(0, 1);
+    auto start = std::chrono::system_clock::now();
+    for (long i = 0; i < TRIALS; ++i) {
+        double s = dist(rng);
+    }
+    std::chrono::duration<double> duration = std::chrono::system_clock::now() - start;
+    std::cout << std::endl << "Running without Benchmark class:" << std::endl
+              << "Benchmark boost::random::taus88 and boost::random::normal_distribution in "
+              << "double precision:" << std::endl 
+              << TRIALS << " samples in " << duration.count() << " seconds, i.e., "
+              << TRIALS / duration.count() << " samples per second"
+              << std::endl;
+    
     return 0;
 }
