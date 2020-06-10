@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(code_cpp_RNG_benchmark)
+if(NOT CMAKE_BUILD_TYPE)
+    SET(CMAKE_BUILD_TYPE "RELEASE")
+    #SET(CMAKE_BUILD_TYPE "DEBUG")
+    #SET(CMAKE_BUILD_TYPE "RELWITHDEBINFO")
+    #SET(CMAKE_BUILD_TYPE "MINSIZEREL")
+endif()
+ 
+project(cpp_RNG_benchmark)
 
 set(CMAKE_CXX_STANDARD 17)
 
